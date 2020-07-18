@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog</title>    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/home.css">
+    </head>
+    <body>
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <div class="header item">
+          <i class="coffee icon" style="font-size:1.5rem"></i> BlogPost
+        </div>
+        <a class="active item" href="/">
+          Home
+        </a>
+        <a class="item" href="/blogs/new">
+          New Blog
+        </a>
+        <a class="item">
+          Friends
+        </a>
+      </div>
+    </div>
+
+    <div class="ui container important segment">   
+        <div >
+            <div class="ui huge header">
+                <h2>Welcome to the world of content</h2>
+            </div>
+            <p id="main">Variety of blogs have been tagged from various bloggers from around the world.This content is created with 
+            the aim to spark the creative side of individuals and enable their ability to think out of the box</p>
+        </div>
+        <hr id="primary">
+        <br>
+        <div class="container">
+            <div >
+                <% for(var i=0;i<blogs.length;i++){ %>
+                    <div class="ui segment text item">
+                        <div style="padding-bottom:20px">
+                            <h3><%=blogs[i].title %></h3>
+                            <hr id="secondary">
+                            <br>
+                            <img class="image" src=" <%= blogs[i].img %>">
+                            <div class="blog-body">
+                                <div class="meta">
+                                    <%= blogs[i].date.toDateString() %>
+                                </div>
+                                <br>
+                                <div class="description">
+                                    <p>
+                                        <%- blogs[i].body.substring(0,100) %>
+                                        <br>
+                                        <%- blogs[i].body.substring(100,150) %>....
+                                    </p>
+                                </div>
+                                <br><br>
+                                <a class="ui purple basic small button" href="/blogs/<%= blogs[i]._id %>">
+                                    Read More <i class="right chevron icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <%    } %>
+                
+            </div>
+        </div>
+    </div> 
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

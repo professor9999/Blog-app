@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog</title>    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" href="/show.css">
+    </head>
+    <body>
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <div class="header item">
+          <i class="coffee icon" style="font-size:1.5rem"></i> BlogPost
+        </div>
+        <a class="item" href="/">
+          Home
+        </a>
+        <a class="item" href="/blogs/new">
+          New Blog
+        </a>
+        <a class="item">
+          Friends
+        </a>
+      </div>
+    </div>  
+    
+    <div class="ui main text segment container" style="margin:75px">
+        <div>
+            <div class="ui huge header">
+                <h2><%=blog.title %></h2>
+            </div>
+            <div class="ui top attached">
+                <div class="item">
+                    <img class="ui centered rounded image" src=" <%= blog.img %>">  
+                    <div class"content" style="color:#2577fa">
+                        <%= blog.date.toDateString() %>
+                    </div>
+                    <hr>
+                    <div class="description">
+                        <p>
+                            <%= blog.body %>
+                        </p>
+                    </div>
+                    <br>
+                    <div>
+                        <form action="/blogs/<%=blog._id %>/delete" method="POST">
+                            <button style="float:left" class="ui red basic button">Delete Post</button>
+                        </form>
+                        <a class="ui green basic button" style="margin-left:10px" href="/blogs/<%=blog._id%>/edit">Edit Post</a>
+                    </div>
+                    <div class="back-link">
+                        <a class="small" href="/blogs">Go Back</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>        
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog</title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/new.css">
+    </head>
+    <body>
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <div class="header item">
+          <i class="coffee icon" style="font-size:1.5rem"></i> BlogPost
+        </div>
+        <a class="item" href="/">
+          Home
+        </a>
+        <a class="active item" href="/blogs/new">
+          New Blog
+        </a>
+        <a class="item">
+          Friends
+        </a>
+      </div>
+    </div>
+    
+    
+    
+    <div class="ui main container text segment">
+        <h3>Enter new Blog Post</h3>
+        <form class="ui form" action="/blogs" method="POST">
+          <div class="field">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="title">
+          </div>
+          <div class="field">
+            <label>Image</label>
+            <input type="text" name="image" placeholder="Enter image url">
+          </div>
+          <div class="field">
+            <label>Blog Post Goes Here</label>
+            <textarea name="body">
+            </textarea>
+          </div>
+          <button class="ui button" type="submit">Submit</button>
+          
+         </form>
+    </div>
+</body>
+</html>
